@@ -41,7 +41,9 @@ function choixCitation (){
 }
 
 // cette fonction appel l'affachage de la citation suite à une action de l'admin
-add_shortcode('citation', 'choixCitation');
+add_action('wp_footer', 'choixCitation');
+
+add_action('admin_notices', 'choixCitation');
 
 // code css pourbien afficher la citation sur la page
 function citation_css() {
@@ -72,4 +74,5 @@ function citation_css() {
 	";
 }
 
-add_action( 'admin_head', 'citation_css' );
+add_action('wp_head', 'citation_css');
+add_action('admin_head', 'citation_css');
