@@ -41,7 +41,7 @@ function choixCitation (){
 }
 
 // cette fonction appel l'affachage de la citation suite à une action de l'admin
-add_action('admin_notices', 'choixCitation');
+add_shortcode('citation', 'choixCitation');
 
 // code css pourbien afficher la citation sur la page
 function citation_css() {
@@ -62,7 +62,7 @@ function citation_css() {
 	}
 	@media screen and (max-width: 782px) {
 		.ma-citation,
-		.rtl #ma_citation {
+		.rtl .ma-citation {
 			float: none;
 			padding-left: 0;
 			padding-right: 0;
