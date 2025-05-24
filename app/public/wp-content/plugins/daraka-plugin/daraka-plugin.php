@@ -40,21 +40,23 @@ function choixCitation (){
     echo '<div class= "ma-citation">'.esc_html($choix).'</div>';
 }
 
-// cette fonction appel l'affachage de la citation suite à une action de l'admin
+// cette fonction déclenche l'affichage de la citation suite au chargement de l'admin ou celui d'un utilisateur public
 add_action('wp_footer', 'choixCitation');
 
 add_action('admin_notices', 'choixCitation');
 
-// code css pourbien afficher la citation sur la page
+// code css pour bien afficher la citation sur la page
 function citation_css() {
 	echo "
 	<style type='text/css'>
 	.ma-citation {
 		float: right;
-		padding: 5px 10px;
-		margin: 0;
+		padding: 10px;
+		margin: 5px;
+		border-left: 5px solid green;
 		font-size: 12px;
 		line-height: 1.6666;
+		background-color: #23fb3c;
 	}
 	.rtl .ma-citation {
 		float: left;
@@ -73,6 +75,6 @@ function citation_css() {
 	</style>
 	";
 }
-
+// ajouter le css dans le head public et pour l'admin
 add_action('wp_head', 'citation_css');
 add_action('admin_head', 'citation_css');
